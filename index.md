@@ -41,3 +41,4 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 
 
 ### Import HTML
+{% include got.html %}
