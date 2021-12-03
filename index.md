@@ -40,6 +40,7 @@ What is the prevalent sentiment in the quotes from mostly news articles?
 # 3. The social-graph
 
 Here it is:
+**Grab the nodes**:
 {% include social_graph.html %}
 
 # 4. Clusters and Communities
