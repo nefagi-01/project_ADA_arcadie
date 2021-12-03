@@ -1,44 +1,51 @@
-## Welcome to GitHub Pages
+# Social Graph - Quotebank
 
-You can use the [editor on GitHub](https://github.com/nefagi-01/test-jekyll/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# 1. Abstract and objectives
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The starting point of this datastory is the ***[QuoteBank](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)*** dataset,  "an open corpus of 178 million quotations attributed to the speakers who uttered them, extracted from 162
+million English news articles published between 2008 and 2020".
 
-### Markdown
+The key idea of the projects revolves around the fact that in this enormous amount of quotation it may exist a good portion containing quotation referencing someone else.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+For example, since many of this quotations come from news articles, it is likely that they will be from politic exponents stating something about other political or well-known public figures.
 
-```markdown
-Syntax highlighted code block
+From this considerations we draw our project goals:
 
-# Header 1
-## Header 2
-### Header 3
+1. Is it possible to create a *social-graph* where each **node** is a **person** and the **edges** represent a **quotation** where "person A stated something about person B"?
+2. What if this **edges** have a **weight** depending on the sentiment of the statement (i.e when a quotation is positive the weight is small, and when it is negative it is high)?
+3. Would this particular choice of the weight lead to a graph where communities can be observed in clusters of the graph since people having good interaction between them (i.e having good statements about each other) would be near, whereas those having bad interactions would stay apart?
+4. Which communities can we find in the clusters graph? (Political parties, Male/Female groups, etc...)
+5. Can we see a changement of this clusters over time?
 
-- Bulleted
-- List
+# 2. Some statistics about the data
 
-1. Numbered
-2. List
+## 2.1 How much data?
 
-**Bold** and _Italic_ and `Code` text
+As a starting point looking at the proportion of quotes mentioning someone and those not mentioning someone can give us an idea of the size of data we dispose.
 
-[Link](url) and ![Image](src)
-```
+[Plot]
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## 2.2 Who speaks more? Who more mentioned?
 
-### Cat image
-![image info](./cat.jpg)
+Before creating the graph, we're curious to see who are the most mentioned people and who are the people quoting the most.
 
-### Jekyll Themes
+[Plot]
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nefagi-01/test-jekyll/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## 2.3 Sentiment statistics
 
-### Support or Contact
+What is the prevalent sentiment in the quotes from mostly news articles?
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[Plot]
 
+# 3. The social-graph
 
-### Import HTML
+Here it is:
 {% include got.html %}
+
+# 4. Clusters and Communities
+
+Here they are:
+[Plot]
+
+# 5. Changements over time
+
