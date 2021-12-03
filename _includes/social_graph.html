@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 750px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#84c4b4", "font": {"color": "white"}, "id": "Q22686", "label": "Q22686", "shape": "dot", "title": "Q22686"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "population", "label": "population", "shape": "dot", "title": "population"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q359442", "label": "Q359442", "shape": "dot", "title": "Q359442"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q530355", "label": "Q530355", "shape": "dot", "title": "Q530355"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q6279", "label": "Q6279", "shape": "dot", "title": "Q6279"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q6808754", "label": "Q6808754", "shape": "dot", "title": "Q6808754"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q677871", "label": "Q677871", "shape": "dot", "title": "Q677871"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q1058", "label": "Q1058", "shape": "dot", "title": "Q1058"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q58360019", "label": "Q58360019", "shape": "dot", "title": "Q58360019"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q25369", "label": "Q25369", "shape": "dot", "title": "Q25369"}, {"color": "#84c4b4", "font": {"color": "white"}, "id": "Q892014", "label": "Q892014", "shape": "dot", "title": "Q892014"}]);
+        edges = new vis.DataSet([{"color": "#479c8b", "from": "Q22686", "length": 1.8906108917606803, "to": "population"}, {"color": "#479c8b", "from": "population", "length": 1.7707443590164234, "to": "Q359442"}, {"color": "#479c8b", "from": "population", "length": 0.9257046941523368, "to": "Q530355"}, {"color": "#479c8b", "from": "Q6279", "length": 1.0, "to": "Q6279"}, {"color": "#479c8b", "from": "population", "length": 0.5011749686723522, "to": "Q6808754"}, {"color": "#479c8b", "from": "population", "length": 1.5242462110152364, "to": "Q677871"}, {"color": "#479c8b", "from": "Q6279", "length": 1.0, "to": "population"}, {"color": "#479c8b", "from": "population", "length": 2.474900021868255, "to": "Q1058"}, {"color": "#479c8b", "from": "Q6279", "length": 1.691473428031577, "to": "Q22686"}, {"color": "#479c8b", "from": "population", "length": 1.6641258990105845, "to": "Q58360019"}, {"color": "#479c8b", "from": "population", "length": 0.994415650771598, "to": "Q25369"}, {"color": "#479c8b", "from": "Q22686", "length": 1.10815891153041, "to": "Q892014"}, {"color": "#479c8b", "from": "Q22686", "length": 2.361034805874481, "to": "Q22686"}, {"color": "#479c8b", "from": "Q359442", "length": 2.0643181950383624, "to": "Q22686"}, {"color": "#479c8b", "from": "population", "length": 1.026135700809198, "to": "Q892014"}, {"color": "#479c8b", "from": "Q22686", "length": 0.5566046920967439, "to": "Q58360019"}, {"color": "#479c8b", "from": "Q22686", "length": 0.5353149573382385, "to": "Q6808754"}, {"color": "#479c8b", "from": "Q359442", "length": 1.0, "to": "Q58360019"}, {"color": "#479c8b", "from": "Q22686", "length": 0.3958183045163016, "to": "Q530355"}, {"color": "#479c8b", "from": "Q22686", "length": 1.0, "to": "Q677871"}, {"color": "#479c8b", "from": "Q359442", "length": 1.0, "to": "Q6279"}, {"color": "#479c8b", "from": "Q25369", "length": 0.69683961660583, "to": "Q25369"}, {"color": "#479c8b", "from": "Q359442", "length": 1.8210258570260724, "to": "Q359442"}, {"color": "#479c8b", "from": "Q1058", "length": 0.4509494635368599, "to": "Q1058"}, {"color": "#479c8b", "from": "Q22686", "length": 0.4720832178183469, "to": "Q1058"}, {"color": "#479c8b", "from": "Q892014", "length": 0.8798533791446438, "to": "Q892014"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
