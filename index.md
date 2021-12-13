@@ -1,5 +1,11 @@
 # Social Graph - Quotebank
 
+
+
+https://user-images.githubusercontent.com/73229139/145902420-d22f6160-96ff-4892-9966-d04ca593deff.mp4
+
+
+
 # 1. Abstract and objectives
 
 The starting point of this datastory is the ***[QuoteBank](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)*** dataset,  "an open corpus of 178 million quotations attributed to the speakers who uttered them, extracted from 162
