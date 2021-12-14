@@ -23,21 +23,21 @@ From these considerations we draw our project goals:
 
 [second animation]
 
-# 2. Some statistics about the data
+# 1. Some statistics about the data
 
-## 2.1 How much data?
+## 1.1 How much data?
 
 As a starting point looking at the proportion of quotes mentioning someone and those not mentioning someone can give us an idea of the size of data we dispose of.
 
 [Plot]
 
-## 2.2 Who speaks more? Who more mentioned?
+## 1.2 Who speaks more? Who more mentioned?
 
 Before creating the graph, we're curious to see who are the most mentioned people and who are the people quoting the most.
 
 [Plot]
 
-## 2.3 Sentiment statistics
+## 1.3 Sentiment statistics
 
 What is the prevalent sentiment in the quotes from mostly news articles?
 
@@ -144,39 +144,142 @@ In the end we found that $\alpha =5$ was a good value for the constant in order 
 
 [interactive graph]
 
-## 3.1 How do we create it?
-
-## 3.2 Final result
-
-Here it is:
-
-[Plot]
-
 # 4. Statistics on the graph
+
+Before diving in in the community detection, it can be interesting to start with some pre-analysis on the graph.
 
 ## 4.1 General statistics
 
-### 4.1.1 Statistics per year
+The uppergraph gives us the following information :
 
-### 4.1.2 Compound Score
+- 2% of the quotes match our criterias :
 
-### 4.1.3 Most popular people
+Criteria 1 : speaker is not none
+
+Criteria 2 : only one person is being mentionned in the quote (not 0, not more than 1)
+
+Criteria 3 : the person is identified in our database id_alias_cleaned
+
+- We have in average 26 000 quotes per year to construct our graph
+- The years seem to have little effect on the features
+- Our subjects (speaker + person being mentionned) are in average 80% men
+- The speakers are in average 56 years old
+- The persons being mentionned are in average 71 years old (15 years more than the speakers)
+
+[COOL GRAPH OF THIS]
+
+### 4.1.1 Compound score
+
+Following we decided to observe the value of the compound score:
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%204.png)
+
+The uppergraphs give us the following information :
+
+- In average our quotes have a mean compound score of 0.24
+- The maximal and minimal value of the compound score are respectevly 1 and -1
+- The years seem to have little effect on the features
+- 17% of our quotes are neutral (compound_score equal to 0)
+- 60 % of our quotes are positive (100 000 quotes)
+- 23 % of our quotes are negative (40 000 quotes)
+- The histogram shows us that we do not have a gaussian distribution.
+
+This means that we have 3 times more positive quotes than negative quotes.
+
+### 4.1.2 Most popular people
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%205.png)
+
+We can see that the most popular subjects are mainly man politicians. Donald Trump is leading the group almost every year, with a popularity score that can be 6 times bigger than the second most popular subjects in the same year.
 
 ## 4.2 Fun facts
 
 ### 4.2.1 Old vs Young
 
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%206.png)
+
 ### 4.2.2 Women vs Man
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%207.png)
 
 ### 4.2.3 Trump and Biden vs Gender
 
-Study of julien
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%208.png)
+
+In this step it would be nice to have a graph with the node which is bigger the count is high ( even drawn "by hand". Like in this image
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%209.png)
+
+## 4.3 Too many null features
+
+When we added the features from wikidata to each node in the graph, from a statistical analysis we observed mos of them are None.
+Since our goal is to describe the communities we will detect in the next steps, we found important to have a good amount of features with no null values.
+
+That's why we decided to reduce the number of the nodes in the graph to the top 500 and to label them manually.
+
+This would bring us to have enough data to continue our studies.
+
+[plot showing number of null features]
 
 # 5. Communities with Louvain Algorithm
 
-Here they are:
-[Plot]
+## 5.1 Community detection
+
+In the last step we finally run the Louvain Algorithm for obtaining our communities based only on the weight of the edges which is given only by the sentimental analysis of the quotes.
+
+The result we obtain is quite fascinating:
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%2010.png)
+
+[plot graph]
+
+From here we can observe how there are 3 main communities:
+
+- green
+- purple
+- blue
+
+We remark that also many other little communities have been found during the execution of the algorithm, but their population is quite small, then we won't consider them.
+
+## 5.2 Community analysis
+
+By studying the distribution of the features in the top 3 communities we observe:
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%2011.png)
+
+Since the number of feature is relatevly high, it may be hard to understand which are the mos characteristich features of the communities.
+
+In order to understand this we decided to use both a chi-squared and a mutual information measure between each feature and the community assignemnt value. This lead us to this results:
+
+![Untitled](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/Untitled%2012.png)
+
+We understand then that the most important features are:
+
+1. party
+2. religion
+3. ethnic_group
+
+Indeed by observing the graph previous distributions plotted we can find that the most popular party in the 2° community is the Democrat Party, whereas in the 3° community is the Republican.
+
+We are now curious to see who is the most popular person in each of this communities.
+
+We find out that:
+
+- Trump is the main node in 3° community !!
+- Biden is the main node in 2° community !!
+
+This result is amazing: we managed to reobserve the 2 political parties in this social graph only based on the quotes of each speaker. 
+
+[eventually there are other interesting community emerging of which we can talk about ]
+
+**This leads us to say that by how we speak, and by who we speak about, it is possible to understand in which community we belong!**
+
+[maybe some party animation]
+
+[https://giphy.com/embed/IwAZ6dvvvaTtdI8SD5](https://giphy.com/embed/IwAZ6dvvvaTtdI8SD5)
 
 # 5. Changements over time
+
+In the end we decided to repeat the same procedure of before for observing 
 
 [https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
