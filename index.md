@@ -276,7 +276,7 @@ This result is amazing: we managed to reobserve the 2 political parties in this 
 
 [maybe some party animation]
 
-[https://giphy.com/embed/IwAZ6dvvvaTtdI8SD5](https://giphy.com/embed/IwAZ6dvvvaTtdI8SD5)
+![giphy.gif](Social%20Graph%20-%20Quotebank%20ebf197672f5d4618afacdef656aa1d19/giphy.gif)
 
 # 5. Changements over time
 
