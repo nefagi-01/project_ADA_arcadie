@@ -1,8 +1,7 @@
 # Social Graph - Quotebank
 
 
-
-https://user-images.githubusercontent.com/73229139/145902420-d22f6160-96ff-4892-9966-d04ca593deff.mp4
+https://user-images.githubusercontent.com/73229139/146226763-bb3fea3d-0ed8-44c7-b5ac-00c635841ed8.mp4
 
 <iframe width="420" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
 
@@ -10,8 +9,13 @@ https://user-images.githubusercontent.com/73229139/145902420-d22f6160-96ff-4892-
 # 1. Abstract and objectives
 
 
+https://user-images.githubusercontent.com/73229139/146226837-b08db727-ce3b-4530-9f5f-85bcfe47777e.mp4
 
-https://user-images.githubusercontent.com/73229139/146211628-31313268-1d36-47d6-a3d4-360523e18625.mp4
+
+
+https://user-images.githubusercontent.com/73229139/146226801-ea8339f7-d7b9-4998-9054-58cd0a882bec.mp4
+
+
 
 
 
