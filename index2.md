@@ -3,13 +3,63 @@
 
 https://user-images.githubusercontent.com/73229139/146226763-bb3fea3d-0ed8-44c7-b5ac-00c635841ed8.mp4
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
 
-
-# 1. Abstract and objectives
-
+# 1. Objective of our project
 
 https://user-images.githubusercontent.com/73229139/146226837-b08db727-ce3b-4530-9f5f-85bcfe47777e.mp4
+
+# 2. How we constructed our graph ?
+
+https://user-images.githubusercontent.com/73229139/146237783-9757d343-5693-4972-b7e7-eb5d23348edd.mp4
+
+Our Graph has YYY quotes, here is a snapchot of its columns : 
+
+<img width="1199" alt="Capture d’écran 2021-12-15 à 19 09 00" src="https://user-images.githubusercontent.com/73229139/146241584-ee8c7972-c116-486f-bc79-808ece6d38c8.png">
+
+# 3. A look at the most popular subjects
+
+We define the popularity by the sum of the number of time a person was mentioned and the number of time he spoke! Let's have a look at the most popular subjects in our graph of the last couple of years :
+
+![38b0abe1-1841-4cca-a201-1bb9d2668fc1](https://user-images.githubusercontent.com/73229139/146242198-38a3433e-3f8f-4872-9766-e81549299205.jpg)
+
+A lot of political figures, and mainly american ones! To go further in our statistical analysis, we select the 500 most popular subjects of our graph. Thanks to the database Wikidata, we can link each subject with some features such as gender, age, political party, religion, academic degree and nationality! Lets check who we have in the 500 most popular subjects :
+
+
+![example](https://user-images.githubusercontent.com/73229139/146243284-9500b08e-4cbc-48de-85ff-64cde57fb63d.png)
+
+
+# 4. We now can plot our social graph based on the compound score!
+
+
+![graph_image (3)-11](https://user-images.githubusercontent.com/73229139/146244008-17874d3c-6112-4edd-a172-9b183c22daae.png)
+
+We use louvain method to find communities:
+
+![graph_image (3)-1](https://user-images.githubusercontent.com/73229139/146244030-00aa6405-5ce4-4f1a-9ddd-b9eac3683b18.png)
+
+The method found N communities, lets see how many subjects do we have per community :
+
+![Artboard_wgjng](https://user-images.githubusercontent.com/73229139/146244111-4b5683d8-ee0e-472b-afde-f6f5fa74f4e3.png)
+
+
+
+# 5. Lets identify the communities 
+
+!!!show statistics about communities!!!
+
+# 6. Changements over time 
+
+Lets check for the different years 
+
+# 7. Conclusion 
+
+People are mean. 
+
+
+
+****************************************************************************************************************************************
+
+<iframe width="420" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
 
 
 
@@ -30,7 +80,7 @@ From this considerations we draw our project goals:
 
 # 2. How did we construct our graph ? 
 
-https://user-images.githubusercontent.com/73229139/146237783-9757d343-5693-4972-b7e7-eb5d23348edd.mp4
+
 
 
 # 2. Some statistics about the data
