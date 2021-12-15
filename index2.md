@@ -13,12 +13,6 @@ https://user-images.githubusercontent.com/73229139/146226837-b08db727-ce3b-4530-
 
 
 
-https://user-images.githubusercontent.com/73229139/146226801-ea8339f7-d7b9-4998-9054-58cd0a882bec.mp4
-
-
-
-
-
 The starting point of this datastory is the ***[QuoteBank](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)*** dataset,  "an open corpus of 178 million quotations attributed to the speakers who uttered them, extracted from 162
 million English news articles published between 2008 and 2020".
 
@@ -34,7 +28,9 @@ From this considerations we draw our project goals:
 4. Which communities can we find in the clusters graph? (Political parties, Male/Female groups, etc...)
 5. Can we see a changement of this clusters over time?
 
+# 2. How did we construct our graph ? 
 
+https://user-images.githubusercontent.com/73229139/146237783-9757d343-5693-4972-b7e7-eb5d23348edd.mp4
 
 
 # 2. Some statistics about the data
