@@ -9,6 +9,12 @@ https://user-images.githubusercontent.com/73229139/145902420-d22f6160-96ff-4892-
 
 # 1. Abstract and objectives
 
+
+
+https://user-images.githubusercontent.com/73229139/146211628-31313268-1d36-47d6-a3d4-360523e18625.mp4
+
+
+
 The starting point of this datastory is the ***[QuoteBank](https://dlab.epfl.ch/people/west/pub/Vaucher-Spitz-Catasta-West_WSDM-21.pdf)*** dataset,  "an open corpus of 178 million quotations attributed to the speakers who uttered them, extracted from 162
 million English news articles published between 2008 and 2020".
 
@@ -23,6 +29,9 @@ From this considerations we draw our project goals:
 3. Would this particular choice of the weight lead to a graph where communities can be observed in clusters of the graph since people having good interaction between them (i.e having good statements about each other) would be near, whereas those having bad interactions would stay apart?
 4. Which communities can we find in the clusters graph? (Political parties, Male/Female groups, etc...)
 5. Can we see a changement of this clusters over time?
+
+
+
 
 # 2. Some statistics about the data
 
